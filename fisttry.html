@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <title>CommuniCard</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+    <script>
+        function navigateTo(screenId) {
+            // Hide all screens
+            var screens = document.getElementsByClassName('screen');
+            for (var i = 0; i < screens.length; i++) {
+                screens[i].style.display = 'none';
+            }
+            // Show the requested screen
+            document.getElementById(screenId).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div id="screen1" class="screen">
+	<h>Welcome to CommuniCard!</h>
+        <p>Cards for people with communication disabilities</p>
+	<p>This card is to help YOU communicate more easily.<br> You can create it here for free.</p>
+	<p>CommuniCard is an interactive platform that creates a personalized card introducing the person with a communication disability and explaining how to better communicate with them. We believe that assisted conversation promotes participation.</p>
+        <button onclick="navigateTo('screen2')">Start Creating</button>
+    </div>
+    <div id="screen2" class="screen" style="display: none;">
+        <p>Let’s start! <br>In the next stages we will ask you to fill in the details for your personalized card.</p>
+        <button onclick="navigateTo('screen1')">Go Back</button>
+        <button onclick="navigateTo('screen3')">Continue</button>
+    </div>
+    <div id="screen3" class="screen" style="display: none;">
+	<h>Before we start – note to users:</h>
+        <p>If you are creating the card for yourself – press continue!</p>
+	<p>If you are assisting someone else make their card please read the following note:</p>
+	<p>You have an important role in enabling the person you are assisting control the content and design of their card.<br>- We suggest presenting the options one by one and giving sufficient reaction time, to support the person in making their choice.<br>- Once the preview of the card is ready, present it to the person and allow them to request changes before finalizing the card.</p>
+        <button onclick="navigateTo('screen2')">Go Back</button>
+        <button onclick="navigateTo('aboutMeScreen')">Continue</button>
+    </div>
+    <div id="aboutMeScreen" class="screen" style="display: none;">
+        <h1>About Me</h1>
+        <p>I want people to know about me…</p>
+
+        <input type="checkbox" id="nameCheckbox">
+        <label for="nameCheckbox">My name:</label>
+        <input type="text" id="nameInput" disabled><br>
+
+        <input type="checkbox" id="moreAboutMeCheckbox">
+        <label for="moreAboutMeCheckbox">More about me (profession/hobby/family):</label>
+        <input type="text" id="moreAboutMeInput" disabled><br>
+
+        <input type="checkbox" id="nothingAboutMeCheckbox">
+        <label for="nothingAboutMeCheckbox">Nothing</label><br>
+
+        <button onclick="navigateTo('whatHappenedScreen')">Continue</button>
+        <button onclick="navigateTo('screen3')">Go Back</button>
+    </div>
+    <div id="whatHappenedScreen" class="screen" style="display: none;">
+        <h1>What happened to me?</h1>
+	<input type="checkbox" id="strokeCheckbox">
+	<label for="strokeCheckbox">I had a stroke</label><br>
+
+        <input type="checkbox" id="accidentCheckbox">
+        <label for="accidentCheckbox">I was in an accident</label><br>
+
+	<input type="checkbox" id="brainInjuryCheckbox">
+        <label for="brainInjuryCheckbox">I had a brain injury</label><br>
+
+	<input type="checkbox" id="brainSurgeryCheckbox">
+        <label for="brainSurgeryCheckbox">I had brain surgery</label><br>
+
+	<input type="checkbox" id="brainTumorCheckbox">
+        <label for="brainTumorCheckbox">I had a brain tumor</label><br>
+
+	<input type="checkbox" id="palsyCheckbox">
+        <label for="palsyCheckbox">I have Cerebral Palsy</label><br>
+
+	<input type="checkbox" id="autismCheckbox">
+        <label for="autismCheckbox">I’m on the autistic spectrum</label><br>
+
+	<input type="checkbox" id="hearingCheckbox">
+        <label for="hearingCheckbox">I have a hearing impairment</label><br>
+
+	<input type="checkbox" id="syndromeCheckbox">
+        <label for="syndromeCheckbox">I was born with a syndrome</label><br>
+
+	<input type="checkbox" id="aphasiaCheckbox">
+        <label for="aphasiaCheckbox">I have Aphasia</label><br>
+
+	<input type="checkbox" id="elseCheckbox">
+        <label for="elseCheckbox">Something else: </label><br>
+        <input type="text" id="elseInput" disabled><br>
+
+        <input type="checkbox" id="nothingHappenedCheckbox">
+        <label for="nothingHappenedCheckbox">Nothing</label><br>
+
+        <button onclick="navigateTo('challengesScreen')">Continue</button>
+        <button onclick="navigateTo('aboutMeScreen')">Go Back</button>
+    </div>
+    <div id="challengesScreen" class="screen" style="display: none;">
+        <h1>My Challenges</h1>
+	<p>It's difficult to...</p>
+	<input type="checkbox" id="speakCheckbox">
+	<label for="speakCheckbox">Speak</label><br>
+
+    <input type="checkbox" id="findWordsCheckbox">
+        <label for="findWordsCheckbox">Find the words</label><br>
+
+	<input type="checkbox" id="wrongWordsCheckbox">
+        <label for="wrongWordsCheckbox">Sometimes the words come out wrong</label><br>
+
+	<input type="checkbox" id="understandCheckbox">
+        <label for="understandCheckbox">Understand language</label><br>
+
+	<input type="checkbox" id="followCheckbox">
+        <label for="followCheckbox">Follow the conversation</label><br>
+
+	<input type="checkbox" id="hearCheckbox">
+        <label for="hearCheckbox">Hear</label><br>
+
+	<input type="checkbox" id="communicateCheckbox">
+        <label for="communicateCheckbox">Communicate</label><br>
+
+	<input type="checkbox" id="writeCheckbox">
+        <label for="writeCheckbox">Write</label><br>
+
+	<input type="checkbox" id="readCheckbox">
+        <label for="readCheckbox">Read</label><br>
+
+	<input type="checkbox" id="elseDifficultCheckbox">
+        <label for="elseDifficultCheckbox">Something else: </label><br>
+        <input type="text" id="elseDifficultInput" disabled><br>
+
+        <button onclick="navigateTo('helpScreen')">Continue</button>
+        <button onclick="navigateTo('whatHappenedScreen')">Go Back</button>
+    </div>
+    <div id="helpScreen" class="screen" style="display: none;">
+        <h1>Communication tips</h1>
+	<p>What helps?</p>
+	<input type="checkbox" id="patientCheckbox">
+	<label for="patientCheckbox">Be patient</label><br>
+
+    <input type="checkbox" id="slowCheckbox">
+        <label for="slowCheckbox">Speak slowly</label><br>
+
+	<input type="checkbox" id="shortCheckbox">
+        <label for="shortCheckbox">Use short sentences</label><br>
+
+	<input type="checkbox" id="stopCheckbox">
+        <label for="stopCheckbox">Stop to check that we understand each other</label><br>
+
+	<input type="checkbox" id="yesNoCheckbox">
+        <label for="yesNoCheckbox">Ask yes/no questions or give me options to choose from</label><br>
+
+	<input type="checkbox" id="handCheckbox">
+        <label for="handCheckbox">Use hand gestures</label><br>
+
+	<input type="checkbox" id="aidCheckbox">
+        <label for="aidCheckbox">Refer to my communication aid</label><br>
+
+	<input type="checkbox" id="writeKeyCheckbox">
+        <label for="writeKeyCheckbox">Write down key words</label><br>
+
+	<input type="checkbox" id="elseHelpCheckbox">
+        <label for="elseHelpCheckbox">Something else: </label><br>
+        <input type="text" id="elseHelpInput" disabled><br>
+
+        <button onclick="navigateTo('nextScreen')">Continue</button>
+        <button onclick="navigateTo('challengesScreen')">Go Back</button>
+    </div>
+    <div id="nextScreen" class="screen" style="display: none;">
+        <p id="nextScreenText"></p>
+        <button onclick="exportToPdf()">Export to PDF</button>
+    </div>
+
+    <script>
+        document.getElementById('nameCheckbox').addEventListener('change', function() {
+            document.getElementById('nameInput').disabled = !this.checked;
+        });
+
+        document.getElementById('moreAboutMeCheckbox').addEventListener('change', function() {
+            document.getElementById('moreAboutMeInput').disabled = !this.checked;
+        });
+
+        document.getElementById('nothingAboutMeCheckbox').addEventListener('change', function() {
+            document.getElementById('nameCheckbox').disabled = this.checked;
+            document.getElementById('moreAboutMeCheckbox').disabled = this.checked;
+        });
+
+	document.getElementById('elseCheckbox').addEventListener('change', function() {
+            document.getElementById('elseInput').disabled = !this.checked;
+        });
+
+	document.getElementById('nothingHappenedCheckbox').addEventListener('change', function() {
+            document.getElementById('strokeCheckbox').disabled = this.checked;
+            document.getElementById('accidentCheckbox').disabled = this.checked;
+            document.getElementById('brainInjuryCheckbox').disabled = this.checked;
+            document.getElementById('brainSurgeryCheckbox').disabled = this.checked;
+            document.getElementById('brainTumorCheckbox').disabled = this.checked;
+            document.getElementById('palsyCheckbox').disabled = this.checked;
+            document.getElementById('autismCheckbox').disabled = this.checked;
+            document.getElementById('hearingCheckbox').disabled = this.checked;
+            document.getElementById('syndromeCheckbox').disabled = this.checked;
+            document.getElementById('aphasiaCheckbox').disabled = this.checked;
+            document.getElementById('elseCheckbox').disabled = this.checked;
+        });
+	
+	document.getElementById('elseDifficultCheckbox').addEventListener('change', function() {
+            document.getElementById('elseDifficultInput').disabled = !this.checked;
+        });
+
+        function navigateTo(screenId) {
+            if (screenId === 'nextScreen') {
+                var text = '';
+                if (document.getElementById('nameCheckbox').checked) {
+                    text += 'My name is ' + document.getElementById('nameInput').value + ', ';
+                }
+                if (document.getElementById('moreAboutMeCheckbox').checked) {
+                    text += document.getElementById('moreAboutMeInput').value;
+                }
+		if (document.getElementById('strokeCheckbox').checked) {
+                    text += ' I had a stroke,';
+                }
+		if (document.getElementById('accidentCheckbox').checked) {
+                    text += ' I was in an accident,';
+                }
+		if (document.getElementById('brainInjuryCheckbox').checked) {
+                    text += ' I had a brain injury,';
+                }
+		if (document.getElementById('brainSurgeryCheckbox').checked) {
+                    text += ' I had a brain surgery,';
+                }
+		if (document.getElementById('brainTumorCheckbox').checked) {
+                    text += ' I had a brain tumor,';
+                }
+		if (document.getElementById('palsyCheckbox').checked) {
+                    text += ' I have Cerebral Palsy,';
+                }
+		if (document.getElementById('autismCheckbox').checked) {
+                    text += ' I’m on the autistic spectrum,';
+                }
+		if (document.getElementById('hearingCheckbox').checked) {
+                    text += ' I have a hearing impairment,';
+                }
+		if (document.getElementById('syndromeCheckbox').checked) {
+                    text += ' I was born with a syndrome,';
+                }
+		if (document.getElementById('aphasiaCheckbox').checked) {
+                    text += ' I have Aphasia,';
+                }
+		if (document.getElementById('elseCheckbox').checked) {
+                    text += document.getElementById('elseInput').value;
+                }
+
+		if (document.getElementById('wrongWordsCheckbox').checked) {
+                    text += ' Sometimes the words come out wrong, ';
+                }else{
+		text +=" It's difficult to ";
+		}
+		if (document.getElementById('speakCheckbox').checked) {
+                    text += ' speak,';
+                }
+		if (document.getElementById('findWordsCheckbox').checked) {
+                    text += ' find the words,';
+                }
+		if (document.getElementById('understandCheckbox').checked) {
+                    text += ' understand language,';
+                }
+		if (document.getElementById('followCheckbox').checked) {
+                    text += ' follow the conversation,';
+                }
+		if (document.getElementById('hearCheckbox').checked) {
+                    text += ' hear,';
+                }
+		if (document.getElementById('communicateCheckbox').checked) {
+                    text += ' communicate,';
+                }
+		if (document.getElementById('writeCheckbox').checked) {
+                    text += ' write,';
+                }
+		if (document.getElementById('readCheckbox').checked) {
+                    text += ' read,';
+                }
+		if (document.getElementById('elseDifficultCheckbox').checked) {
+                    text += ' ' + document.getElementById('elseDifficultInput').value + ',';
+                }
+        text += " Please ";
+        if (document.getElementById('patientCheckbox').checked) {
+                    text += 'be patient, ';
+                }
+		if (document.getElementById('slowCheckbox').checked) {
+                    text += 'speak slowly, ';
+                }
+		if (document.getElementById('shortCheckbox').checked) {
+                    text += 'use short sentences, ';
+                }
+		if (document.getElementById('stopCheckbox').checked) {
+                    text += 'stop to check that we understand each other, ';
+                }
+		if (document.getElementById('yesNoCheckbox').checked) {
+                    text += 'ask yes/no questions or give me options to choose from, ';
+                }
+		if (document.getElementById('handCheckbox').checked) {
+                    text += 'use hand gestures, ';
+                }
+		if (document.getElementById('aidCheckbox').checked) {
+                    text += 'refer to my communication aid, ';
+                }
+		if (document.getElementById('writeKeyCheckbox').checked) {
+                    text += 'Write down key words, ';
+                }
+		if (document.getElementById('elseHelpCheckbox').checked) {
+                    text += document.getElementById('elseHelpInput').value + ', ';
+                }
+		text += 'Thank you!'
+
+        document.getElementById('nextScreenText').textContent = text;
+        }
+
+        // Hide all screens
+        var screens = document.getElementsByClassName('screen');
+        for (var i = 0; i < screens.length; i++) {
+            screens[i].style.display = 'none';
+        }
+        // Show the requested screen
+        document.getElementById(screenId).style.display = 'block';
+        }
+    </script>
+    <script src="script.js"></script>
+    <!-- Add more screens here -->
+</body>
+</html>
+	
