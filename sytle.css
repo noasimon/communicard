@@ -1,0 +1,74 @@
+
+p {
+    font-size: 20px;
+  }
+h {
+    font-size: 24px;
+}
+body {
+
+        #businessCard {
+            border: 2px solid black;
+            width: 326px;
+            height: 192px;
+            padding-inline-start: 10px;
+            padding-right: 0;
+            padding-block-end: 0;
+        }
+        #businessCard::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 30px;
+            border-top: 2px solid black;
+        }
+        
+        .line {
+            position: absolute;
+            height: 2px;
+            background-color: black;
+        }
+
+        .line:nth-child(2) {
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            width: 20px;
+            background-color: black;
+        }
+
+        .line:nth-child(3) {
+            position: absolute;
+            left: 5px;
+            top: 15px;
+            width: 10px;
+            background-color: black;
+        }
+        #businessCard::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 178px;
+            left: 323px;
+            width: 10px;
+            border-top: 2px solid black;
+        }
+        .line:nth-child(5) {
+            position: absolute;
+            top: 183px;
+            width: 20px;
+            left: 313px;
+            background-color: black;
+        }
+        
+        .line:nth-child(6) {
+            position: absolute;
+            top: 188px;
+            width: 30px;
+            left: 303px;
+            background-color: black;
+        }
+        
+    }
