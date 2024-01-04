@@ -263,7 +263,12 @@
 
 		if (document.getElementById('wrongWordsCheckbox').checked) {
                     text += ' Sometimes the words come out wrong, ';
-                }else{
+                }
+                if (document.getElementById('speakCheckbox').checked || document.getElementById('findWordsCheckbox').checked || 
+                document.getElementById('understandCheckbox').checked || document.getElementById('followCheckbox').checked || 
+                document.getElementById('hearCheckbox').checked || document.getElementById('communicateCheckbox').checked ||
+                document.getElementById('writeCheckbox').checked || document.getElementById('readCheckbox').checked || 
+                document.getElementById('elseDifficultCheckbox').checked){
 		text +=" It's difficult to ";
 		}
 		if (document.getElementById('speakCheckbox').checked) {
