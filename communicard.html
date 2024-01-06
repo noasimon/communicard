@@ -178,6 +178,7 @@
                 <p id="nextScreenText"></p> 
         </div>
         <button onclick="exportToPdf()">Export to PDF</button>
+        <button onclick="navigateTo('helpScreen')">Go Back</button>
     </div>
     <script>
         document.getElementById('nameCheckbox').addEventListener('change', function() {
@@ -221,6 +222,9 @@
         function navigateTo(screenId) {
             if (screenId === 'nextScreen') {
                 var text = '';
+                var countHappened = 0;
+                var countChal = 0;
+                var countHelp = 0;
                 if (document.getElementById('nameCheckbox').checked) {
                     text += 'My name is ' + document.getElementById('nameInput').value + ', ';
                 }
@@ -228,41 +232,84 @@
                     text += document.getElementById('moreAboutMeInput').value + '.';
                 }
 		if (document.getElementById('strokeCheckbox').checked) {
-                    text += ' I had a stroke,';
+                    text += ' I had a stroke';
+                    countHappened += 1;
                 }
 		if (document.getElementById('accidentCheckbox').checked) {
-                    text += ' I was in an accident,';
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
+                    text += ' I was in an accident';
+                    countHappened += 1;
                 }
 		if (document.getElementById('brainInjuryCheckbox').checked) {
-                    text += ' I had a brain injury,';
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
+                    text += ' I had a brain injury';
+                    countHappened += 1;
                 }
 		if (document.getElementById('brainSurgeryCheckbox').checked) {
-                    text += ' I had a brain surgery,';
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
+                    text += ' I had a brain surgery';
+                    countHappened += 1;
                 }
 		if (document.getElementById('brainTumorCheckbox').checked) {
-                    text += ' I had a brain tumor,';
+                    if (countHappened > 0){
+                        text += ' and'
+                    }    
+                    text += ' I had a brain tumor';
+                    countHappened += 1;
                 }
 		if (document.getElementById('palsyCheckbox').checked) {
-                    text += ' I have Cerebral Palsy,';
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
+                    text += ' I have Cerebral Palsy';
+                    countHappened += 1;
                 }
 		if (document.getElementById('autismCheckbox').checked) {
-                    text += ' I’m on the autistic spectrum,';
+                    if (countHappened > 0){
+                        text += ' and'
+                    }    
+                    text += ' I’m on the autistic spectrum';
+                    countHappened += 1;
                 }
 		if (document.getElementById('hearingCheckbox').checked) {
-                    text += ' I have a hearing impairment,';
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
+                    text += ' I have a hearing impairment';
+                    countHappened += 1;
                 }
 		if (document.getElementById('syndromeCheckbox').checked) {
-                    text += ' I was born with a syndrome,';
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
+                    text += ' I was born with a syndrome';
+                    countHappened += 1;
                 }
 		if (document.getElementById('aphasiaCheckbox').checked) {
-                    text += ' I have Aphasia,';
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
+                    text += ' I have Aphasia';
+                    countHappened += 1;
                 }
 		if (document.getElementById('elseCheckbox').checked) {
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
                     text += document.getElementById('elseInput').value;
+                    countHappened += 1;
                 }
+                text += '.';
 
 		if (document.getElementById('wrongWordsCheckbox').checked) {
                     text += ' Sometimes the words come out wrong, ';
+                //     countChal += 1;
                 }
                 if (document.getElementById('speakCheckbox').checked || document.getElementById('findWordsCheckbox').checked || 
                 document.getElementById('understandCheckbox').checked || document.getElementById('followCheckbox').checked || 
@@ -272,61 +319,127 @@
 		text +=" It's difficult to ";
 		}
 		if (document.getElementById('speakCheckbox').checked) {
-                    text += ' speak,';
+                    text += ' speak';
+                    countChal += 1;
                 }
 		if (document.getElementById('findWordsCheckbox').checked) {
-                    text += ' find the words,';
+                    if (countChal > 0){
+                        text += ' and'
+                    }    
+                    text += ' find the words';
+                    countChal += 1;
                 }
 		if (document.getElementById('understandCheckbox').checked) {
-                    text += ' understand language,';
+                    if (countChal > 0){
+                        text += ' and'
+                    }
+                    text += ' understand language';
+                    countChal += 1;
                 }
 		if (document.getElementById('followCheckbox').checked) {
-                    text += ' follow the conversation,';
+                   if (countChal > 0){
+                        text += ' and'
+                    }    
+                    text += ' follow the conversation';
+                    countChal += 1;
                 }
 		if (document.getElementById('hearCheckbox').checked) {
-                    text += ' hear,';
+                    if (countChal > 0){
+                        text += ' and'
+                    }
+                    text += ' hear';
+                    countChal += 1;
                 }
 		if (document.getElementById('communicateCheckbox').checked) {
-                    text += ' communicate,';
+                   if (countChal > 0){
+                        text += ' and'
+                    }    
+                    text += ' communicate';
+                    countChal += 1;
                 }
 		if (document.getElementById('writeCheckbox').checked) {
-                    text += ' write,';
+                   if (countChal > 0){
+                        text += ' and'
+                    }    
+                    text += ' write';
+                    countChal += 1;
                 }
 		if (document.getElementById('readCheckbox').checked) {
-                    text += ' read,';
+                   if (countChal > 0){
+                        text += ' and'
+                    }
+                    text += ' read';
+                    countChal += 1;
                 }
 		if (document.getElementById('elseDifficultCheckbox').checked) {
+                   if (countChal > 0){
+                        text += ' and'
+                    }
                     text += ' ' + document.getElementById('elseDifficultInput').value + ',';
+                    countChal += 1;
                 }
-        text += " Please ";
+        text += ". Please";
         if (document.getElementById('patientCheckbox').checked) {
-                    text += 'be patient, ';
+                    text += ' be patient';
+                    countHelp += 1;
                 }
 		if (document.getElementById('slowCheckbox').checked) {
-                    text += 'speak slowly, ';
+                   if (countHelp > 0){
+                        text += ' and'
+                    }    
+                    text += ' speak slowly';
+                    countHelp += 1;
                 }
 		if (document.getElementById('shortCheckbox').checked) {
-                    text += 'use short sentences, ';
+                    if (countHelp > 0){
+                        text += ' and'
+                    }        
+                    text += ' use short sentences';
+                    countHelp += 1;
                 }
 		if (document.getElementById('stopCheckbox').checked) {
-                    text += 'stop to check that we understand each other, ';
+                   if (countHelp > 0){
+                        text += ' and'
+                    }    
+                    text += ' stop to check that we understand each other';
+                    countHelp += 1;
                 }
 		if (document.getElementById('yesNoCheckbox').checked) {
-                    text += 'ask yes/no questions or give me options to choose from, ';
+                   if (countHelp > 0){
+                        text += ' and'
+                    }
+                    text += ' ask yes/no questions or give me options to choose from';
+                    countHelp += 1;
                 }
 		if (document.getElementById('handCheckbox').checked) {
-                    text += 'use hand gestures, ';
+                   if (countHelp > 0){
+                        text += ' and'
+                    }
+                    text += ' use hand gestures';
+                    countHelp += 1;
                 }
 		if (document.getElementById('aidCheckbox').checked) {
-                    text += 'refer to my communication aid, ';
+                   if (countHelp > 0){
+                        text += ' and'
+                    }
+                    text += ' refer to my communication aid';
+                    countHelp += 1;
                 }
 		if (document.getElementById('writeKeyCheckbox').checked) {
-                    text += 'Write down key words, ';
+                   if (countHelp > 0){
+                        text += ' and'
+                    }    
+                    text += ' write down key words';
+                    countHelp += 1;
                 }
 		if (document.getElementById('elseHelpCheckbox').checked) {
-                    text += document.getElementById('elseHelpInput').value + ', ';
+                   if (countHelp > 0){
+                        text += ' and'
+                    }
+                    text += ' ' + document.getElementById('elseHelpInput').value;
+                    countHelp += 1;
                 }
-		text += 'Thank you!'
+		text += '. Thank you!'
 
         document.getElementById('nextScreenText').textContent = text;
         }
