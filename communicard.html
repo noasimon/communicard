@@ -231,43 +231,45 @@
                 if (document.getElementById('moreAboutMeCheckbox').checked) {
                     text += document.getElementById('moreAboutMeInput').value + '.';
                 }
-		if (document.getElementById('strokeCheckbox').checked) {
-                    text += ' I had a stroke';
+        if (document.getElementById('accidentCheckbox').checked) {
+                    text += ' I was in an accident';
                     countHappened += 1;
                 }
-		if (document.getElementById('accidentCheckbox').checked) {
+		if (document.getElementById('strokeCheckbox').checked) {
                     if (countHappened > 0){
                         text += ' and'
                     }
-                    text += ' I was in an accident';
+                    text += ' I had a stroke';
                     countHappened += 1;
                 }
 		if (document.getElementById('brainInjuryCheckbox').checked) {
                     if (countHappened > 0){
                         text += ' and'
                     }
-                    text += ' I had a brain injury';
+                    if (!document.getElementById('strokeCheckbox').checked) {
+                        text += ' I had'
+                    }
+                    text += ' a brain injury';
                     countHappened += 1;
                 }
 		if (document.getElementById('brainSurgeryCheckbox').checked) {
                     if (countHappened > 0){
                         text += ' and'
                     }
-                    text += ' I had a brain surgery';
+                    if (!document.getElementById('strokeCheckbox').checked && !document.getElementById('brainInjuryCheckbox').checked) {
+                        text += ' I had'
+                    }
+                    text += ' a brain surgery';
                     countHappened += 1;
                 }
 		if (document.getElementById('brainTumorCheckbox').checked) {
                     if (countHappened > 0){
                         text += ' and'
-                    }    
-                    text += ' I had a brain tumor';
-                    countHappened += 1;
-                }
-		if (document.getElementById('palsyCheckbox').checked) {
-                    if (countHappened > 0){
-                        text += ' and'
                     }
-                    text += ' I have Cerebral Palsy';
+                    if (!document.getElementById('strokeCheckbox').checked && !document.getElementById('brainInjuryCheckbox').checked && !document.getElementById('brainSurgeryCheckbox').checked) {
+                        text += ' I had'
+                    }    
+                    text += ' a brain tumor';
                     countHappened += 1;
                 }
 		if (document.getElementById('autismCheckbox').checked) {
@@ -277,11 +279,31 @@
                     text += ' I’m on the autistic spectrum';
                     countHappened += 1;
                 }
+		if (document.getElementById('palsyCheckbox').checked) {
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
+                    text += ' I have Cerebral Palsy';
+                    countHappened += 1;
+                }
+		if (document.getElementById('aphasiaCheckbox').checked) {
+                    if (countHappened > 0){
+                        text += ' and'
+                    }
+                    if (!document.getElementById('palsyCheckbox').checked) {
+                        text += ' I have'
+                    }
+                    text += ' Aphasia';
+                    countHappened += 1;
+                }
 		if (document.getElementById('hearingCheckbox').checked) {
                     if (countHappened > 0){
                         text += ' and'
                     }
-                    text += ' I have a hearing impairment';
+                    if (!document.getElementById('palsyCheckbox').checked && !document.getElementById('aphasiaCheckbox').checked) {
+                        text += ' I have'
+                    }
+                    text += ' a hearing impairment';
                     countHappened += 1;
                 }
 		if (document.getElementById('syndromeCheckbox').checked) {
@@ -289,13 +311,6 @@
                         text += ' and'
                     }
                     text += ' I was born with a syndrome';
-                    countHappened += 1;
-                }
-		if (document.getElementById('aphasiaCheckbox').checked) {
-                    if (countHappened > 0){
-                        text += ' and'
-                    }
-                    text += ' I have Aphasia';
                     countHappened += 1;
                 }
 		if (document.getElementById('elseCheckbox').checked) {
@@ -308,15 +323,20 @@
                 text += '.';
 
 		if (document.getElementById('wrongWordsCheckbox').checked) {
-                    text += ' Sometimes the words come out wrong, ';
+                    text += ' Sometimes the words come out wrong';
                 //     countChal += 1;
                 }
-                if (document.getElementById('speakCheckbox').checked || document.getElementById('findWordsCheckbox').checked || 
-                document.getElementById('understandCheckbox').checked || document.getElementById('followCheckbox').checked || 
-                document.getElementById('hearCheckbox').checked || document.getElementById('communicateCheckbox').checked ||
-                document.getElementById('writeCheckbox').checked || document.getElementById('readCheckbox').checked || 
-                document.getElementById('elseDifficultCheckbox').checked){
-		text +=" It's difficult to ";
+        if (document.getElementById('speakCheckbox').checked || document.getElementById('findWordsCheckbox').checked || 
+            document.getElementById('understandCheckbox').checked || document.getElementById('followCheckbox').checked || 
+            document.getElementById('hearCheckbox').checked || document.getElementById('communicateCheckbox').checked ||
+            document.getElementById('writeCheckbox').checked || document.getElementById('readCheckbox').checked || 
+            document.getElementById('elseDifficultCheckbox').checked){
+            if (document.getElementById('wrongWordsCheckbox').checked) {
+                text += ' and i';
+            }else{
+                text += ' I'
+            }
+		    text +="t's difficult to ";
 		}
 		if (document.getElementById('speakCheckbox').checked) {
                     text += ' speak';
