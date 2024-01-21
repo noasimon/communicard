@@ -317,7 +317,7 @@
                     if (countHappened > 0){
                         text += ' and'
                     }
-                    text += document.getElementById('elseInput').value;
+                    text += ' ' + document.getElementById('elseInput').value;
                     countHappened += 1;
                 }
                 text += '.';
@@ -395,7 +395,7 @@
                    if (countChal > 0){
                         text += ' and'
                     }
-                    text += ' ' + document.getElementById('elseDifficultInput').value + ',';
+                    text += ' ' + document.getElementById('elseDifficultInput').value;
                     countChal += 1;
                 }
         text += ". Please";
