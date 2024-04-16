@@ -19,8 +19,9 @@ body {
             content: "";
             display: block;
             position: absolute;
-            top: 5px;
-            left: 5px;
+            top: 14px;
+            /* left: 5px; */
+            right: 15px;
             width: 30px;
             border-top: 2px solid black;
         }
@@ -33,16 +34,18 @@ body {
 
         .line:nth-child(2) {
             position: absolute;
-            left: 5px;
-            top: 10px;
+            /* left: 5px; */
+            right: 15px;
+            top: 19px;
             width: 20px;
             background-color: black;
         }
 
         .line:nth-child(3) {
             position: absolute;
-            left: 5px;
-            top: 15px;
+            /* left: 5px; */
+            right: 15px;
+            top: 24px;
             width: 10px;
             background-color: black;
         }
@@ -50,24 +53,27 @@ body {
             content: "";
             display: block;
             position: absolute;
-            top: 178px;
-            left: 323px;
+            top: 187px;
+            /* left: 323px; */
+            right: 323px;
             width: 10px;
             border-top: 2px solid black;
         }
         .line:nth-child(5) {
             position: absolute;
-            top: 183px;
+            top: 192px;
             width: 20px;
-            left: 313px;
+            /* left: 313px; */
+            right: 313px;
             background-color: black;
         }
         
         .line:nth-child(6) {
             position: absolute;
-            top: 188px;
+            top: 197px;
             width: 30px;
-            left: 303px;
+            /* left: 303px; */
+            right: 303px;
             background-color: black;
         }
         
